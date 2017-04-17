@@ -5,7 +5,14 @@
 [eGHL](http://e-ghl.com) | [Wiki](https://bitbucket.org/eghl/android/wiki/Home) | [Downloads](https://bitbucket.org/eghl/android/downloads/?tab=tags) | [Follow eGHL Repos](https://bitbucket.org/eghl/follow)
 
 ****
+
 # **Change Log** 
+
+### [**v2.1.5](https://bitbucket.org/eghl/android/commits/tag/v2.1.5)
+* added the following scenario:
+	* if user press back button before eghl landing page finish load, SDK would return Cancelled Status,
+	* If user press back button after eghl landing page finish load, SDK will return exactly like when the user click cancel link at the bottom of eGHL landing page.
+
 ### [**v2.1.4](https://bitbucket.org/eghl/android/commits/tag/v2.1.4)
 * Fixed on user able to terminate requery by tapping the back button
 * Fixed on Merchant app receiving Pending status when user click cancel in eGHL Payment Page
