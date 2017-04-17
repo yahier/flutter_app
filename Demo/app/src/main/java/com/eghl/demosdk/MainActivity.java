@@ -31,7 +31,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    public static final String SERVICE_ID = "OM2";
+    public static final String SERVICE_ID = "GHL";
     
     private PaymentParams.Builder params;
     private EGHL eghl;
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String token = tokenEdit.getText().toString();
         final String tokenType = tokenTypeEdit.getText().toString();
-        final String serviceId = serviceEdit.getText().toString();
+        final String serviceId = SERVICE_ID;
         final String amount = amountEdit.getText().toString();
         final String currencyCode = currencyEdit.getText().toString();
         final String paymentDesc = "eGHL Payment testing";

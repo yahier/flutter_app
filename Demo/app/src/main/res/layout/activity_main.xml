@@ -86,7 +86,7 @@
                     android:id="@+id/serviceEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="OM2"
+                    android:text="GHL"
                     android:hint="Service ID" />
             </android.support.design.widget.TextInputLayout>
 

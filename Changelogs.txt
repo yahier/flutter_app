@@ -1,0 +1,5 @@
+- Added TRANSACTION_ERROR_IN_WEBVIEW result code when the webview failed the SSL handshake
+- Changed the exit message to say EXIT instead of BACK
+- Added setExitMessage() and setExitTitle() to the PaymentParams and LightBoxParams. This will override the default exit message.
+- Fix for back not working when there’s and error in eGHL page 
+- Fix for Kitkat querying bug.

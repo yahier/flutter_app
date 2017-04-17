@@ -8,6 +8,12 @@
 
 # **Change Log** 
 
+### [**v2.1.7](https://bitbucket.org/eghl/android/commits/tag/v2.1.7)
+* Added TRANSACTION_ERROR_IN_WEBVIEW result code when there’s an error in loading the page in the WebView 
+* Fixed issue in executeQuery() in Kitkat 4.4.2
+* Added setExitMessage() and setExitTitle() to the PaymentParams. This will override the default exit message.
+* Changed the default message from "Pressing BACK button will...” to "Pressing EXIT button will…” 
+
 ### [**v2.1.6](https://bitbucket.org/eghl/android/commits/tag/v2.1.6)
 * added instant status instead of doing requery same like iOS behaviour
 
