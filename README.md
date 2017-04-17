@@ -8,6 +8,14 @@
 
 # **Change Log** 
 
+### [**v2.2.0](https://bitbucket.org/eghl/android/commits/tag/v2.2.0)
+* TokenType can now be set in MasterpassParams.
+* Added Capture transation
+* Added way to override the payment gateway and password via Java Code in all EGHL.executeXXX() methods.
+
+### [**v2.1.8](https://bitbucket.org/eghl/android/commits/tag/v2.1.8)
+* added support to set the gateway in java instead of setting it in android manifest
+
 ### [**v2.1.7](https://bitbucket.org/eghl/android/commits/tag/v2.1.7)
 * Added TRANSACTION_ERROR_IN_WEBVIEW result code when there’s an error in loading the page in the WebView 
 * Fixed issue in executeQuery() in Kitkat 4.4.2

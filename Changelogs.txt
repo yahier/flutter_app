@@ -1,2 +1,0 @@
-﻿- Added a way to set the payment gateway and password in Java code using setPaymentGateway and setPassword
-  in PaymentParams.Builder and QueryParams.Builder
