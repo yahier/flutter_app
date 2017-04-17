@@ -8,6 +8,9 @@
 
 # **Change Log** 
 
+### [**v2.1.6](https://bitbucket.org/eghl/android/commits/tag/v2.1.6)
+* added instant status instead of doing requery same like iOS behaviour
+
 ### [**v2.1.5](https://bitbucket.org/eghl/android/commits/tag/v2.1.5)
 * added the following scenario:
 	* if user press back button before eghl landing page finish load, SDK would return Cancelled Status,
