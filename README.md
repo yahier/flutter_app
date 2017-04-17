@@ -6,7 +6,7 @@
 
 ****
 # **Change Log** 
-### [**v2.1.0](https://bitbucket.org/eghl/android/commits/tag/v2.1)
+### [**v2.1.0](https://bitbucket.org/eghl/android/commits/tag/v2.1.0)
 * fixed unable to make payment when passing MerchantCallbackURL to SDK 
 * fixed callback not trigger after transaction done
 * added SDK timeout to prevent user from making payment at bank side after Transaction time limit reached 
