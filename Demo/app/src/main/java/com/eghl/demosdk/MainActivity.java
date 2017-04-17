@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPreCheckoutID(expressResponse.getPreCheckoutId())
                         .setPaymentId(cnasit)
                         .setOrderNumber(cnasit);
+
                 Bundle paymentParams = params.build();
                 eghl.executePayment(paymentParams, MainActivity.this);
                 dialog.dismiss();
