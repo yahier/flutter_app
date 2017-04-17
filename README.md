@@ -6,6 +6,10 @@
 
 ****
 # **Change Log** 
+### [**v2.1.4](https://bitbucket.org/eghl/android/commits/tag/v2.1.4)
+* Fixed on user able to terminate requery by tapping the back button
+* Fixed on Merchant app receiving Pending status when user click cancel in eGHL Payment Page
+
 ### [**v2.1.0](https://bitbucket.org/eghl/android/commits/tag/v2.1.0)
 * fixed unable to make payment when passing MerchantCallbackURL to SDK 
 * fixed callback not trigger after transaction done

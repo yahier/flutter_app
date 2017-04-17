@@ -261,6 +261,9 @@ public class MainActivity extends AppCompatActivity {
                 case EGHL.TRANSACTION_FAILED:
                     Log.d(TAG, "onActivityResult: payment failure");
                     break;
+                case EGHL.TRANSACTION_CANCELLED:
+                        Toast.makeText(this, "payment cancelled", Toast.LENGTH_SHORT).show();
+                    break;
                 default:
                     Log.d(TAG, "onActivityResult: " + resultCode);
                     break;
