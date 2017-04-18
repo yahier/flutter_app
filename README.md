@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+### [**v2.2.0](https://bitbucket.org/eghl/android/commits/tag/v2.2.1)
+* Converted all query strings raw response into a JSON format
+* Fixed the bug on backpress when the user went straight to the bank website via IssuingBank parameter and DD value on PaymentMethod
+* 
 
 ### [**v2.2.0](https://bitbucket.org/eghl/android/commits/tag/v2.2.0)
 * TokenType can now be set in MasterpassParams.
