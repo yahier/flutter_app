@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+### [**v2.2.2](https://bitbucket.org/eghl/android/commits/tag/v2.2.2)
+* Fixed issue #1 Crash when triggering capture
+*
+
 ### [**v2.2.0](https://bitbucket.org/eghl/android/commits/tag/v2.2.1)
 * Converted all query strings raw response into a JSON format
 * Fixed the bug on backpress when the user went straight to the bank website via IssuingBank parameter and DD value on PaymentMethod
@@ -31,7 +35,7 @@
 
 ### [**v2.1.5](https://bitbucket.org/eghl/android/commits/tag/v2.1.5)
 * added the following scenario:
-	* if user press back button before eghl landing page finish load, SDK would return Cancelled Status,
+	* if user press back button before eghl ladning page finish load, SDK would return Cancelled Status,
 	* If user press back button after eghl landing page finish load, SDK will return exactly like when the user click cancel link at the bottom of eGHL landing page.
 
 ### [**v2.1.4](https://bitbucket.org/eghl/android/commits/tag/v2.1.4)

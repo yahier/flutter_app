@@ -166,6 +166,9 @@ public class MainActivity extends AppCompatActivity {
                         .setOrderNumber(cnasit);
 
                 Bundle paymentParams = params.build();
+
+
+
                 eghl.executePayment(paymentParams, MainActivity.this);
 
 
@@ -380,8 +383,6 @@ public class MainActivity extends AppCompatActivity {
         builder.setPaymentId(paymentId);
         builder.setAmount(amount);
         builder.setCurrencyCode(currencyCode);
-        builder.setPaymentGateway("https://test2pay.ghl.com/IPGSG/Payment.aspx");
-        builder.setPassword("ghl12345");
 
         eghl.executeCapture(this, builder.build(), new CaptureCallback() {
             @Override
