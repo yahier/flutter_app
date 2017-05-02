@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.2.3](https://bitbucket.org/eghl/android/commits/tag/v2.2.3)
+* Removed retry policy in all transactions
+
 
 ### [**v2.2.2](https://bitbucket.org/eghl/android/commits/tag/v2.2.2)
 * Fixed issue #1 Crash when triggering capture
