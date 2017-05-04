@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.2.4](https://bitbucket.org/eghl/android/commits/tag/v2.2.4)
+* Fix for issue #4: SDK crashing when MerchantReturnURL has a query strings
+
 ### [**v2.2.3](https://bitbucket.org/eghl/android/commits/tag/v2.2.3)
 * Removed retry policy in all transactions
 
