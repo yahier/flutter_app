@@ -9,7 +9,7 @@
 # **Change Log** 
 ### [**v2.2.5](https://bitbucket.org/eghl/android/commits/tag/v2.2.5)
 * Deprecated setExitTitle() and setExitMessage()
-* Added ways to override strings messages of the SDK
+* Added ways to override strings messages of the SDK for example: (https://bitbucket.org/eghl/android/src/4121306cbecc13f85dad7a97fe6f620e22ac41b8/Demo/app/src/main/res/values/strings.xml?at=master&fileviewer=file-view-default#strings.xml-5,6,7,8,9,10,11)
 * SDk will only return -6767 for SSL error
 
 ### [**v2.2.4](https://bitbucket.org/eghl/android/commits/tag/v2.2.5)
