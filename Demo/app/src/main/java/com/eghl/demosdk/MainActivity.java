@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String cnasit = eghl.generateId("CNASIT");
                 params = new PaymentParams.Builder()
-                        .setMerchantReturnUrl("https://test2pay.ghl.com/IPGSimulatorJeff/RespFrmGW.aspx")
+                        .setMerchantReturnUrl("ajsjdkjasjdlkasjd")
                         .setPaymentDesc("eGHL Payment testing")
                         .setCustPhone("60123456789")
                         .setLanguageCode("EN")
@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPaymentMethod(paymentMethodEdit.getText().toString())
                         .setCardID(card.getCardId())
                         .setPreCheckoutID(expressResponse.getPreCheckoutId())
+
                         .setPaymentId(cnasit)
                         .setOrderNumber(cnasit);
 

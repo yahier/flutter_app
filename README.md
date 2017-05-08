@@ -7,7 +7,14 @@
 ****
 
 # **Change Log** 
-### [**v2.2.4](https://bitbucket.org/eghl/android/commits/tag/v2.2.4)
+### [**v2.2.5](https://bitbucket.org/eghl/android/commits/tag/v2.2.5)
+* Deprecated setExitTitle() and setExitMessage()
+* Added ways to override strings messages of the SDK
+* SDk will only return -6767 for SSL error
+
+### [**v2.2.4](https://bitbucket.org/eghl/android/commits/tag/v2.2.5)
+
+
 * Fix for issue #4: SDK crashing when MerchantReturnURL has a query strings
 
 ### [**v2.2.3](https://bitbucket.org/eghl/android/commits/tag/v2.2.3)
