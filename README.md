@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+
+### [**v2.2.6](https://bitbucket.org/eghl/android/commits/tag/v2.2.6)
+* Prevent exit on masterpass express payment when gateway is not yet loaded
+
 ### [**v2.2.5](https://bitbucket.org/eghl/android/commits/tag/v2.2.5)
 * Deprecated setExitTitle() and setExitMessage()
 * Added ways to override strings messages of the SDK [for example](https://bitbucket.org/eghl/android/src/4121306cbecc13f85dad7a97fe6f620e22ac41b8/Demo/app/src/main/res/values/strings.xml?at=master&fileviewer=file-view-default#strings.xml-5,6,7,8,9,10,11)

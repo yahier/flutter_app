@@ -347,8 +347,6 @@ public class MainActivity extends AppCompatActivity {
                                 .setPairingVerifier(pairingVerifier)
                                 .setReqVerifier(reqVerifier)
                                 .setPaymentId(cnasit)
-                                .setExitMessage("asdasda")
-                                .setExitTitle("asdasdasdasd")
                                 .setOrderNumber(cnasit);
 
                         Bundle paymentParams = params.build();
