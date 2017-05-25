@@ -57,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
     private Button masterpassButton;
 
 
+
+    private String paymentGateway = "https://test2pay.ghl.com/IPGSG/Payment.aspx";
+    private String password = "sit12345";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String cnasit = eghl.generateId("CNASIT");
+                String cnasit = eghl.generateId("DEMO");
                 params = new PaymentParams.Builder()
-                        .setMerchantReturnUrl("ajsjdkjasjdlkasjd")
+                        .setMerchantReturnUrl("SDK") // or any string
                         .setPaymentDesc("eGHL Payment testing")
                         .setCustPhone("60123456789")
                         .setLanguageCode("EN")
@@ -88,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
                         .setTokenType(tokenTypeEdit.getText().toString())
                         .setTransactionType(transactionTypeEdit.getText().toString())
                         .setPaymentMethod(paymentMethodEdit.getText().toString())
-                      //  .setPaymentGateway("https://test2pay.ghl.com/IPGSG/Payment.aspx")
-                        //.setPassword("ghl12345")
+                        .setPaymentGateway(paymentGateway)
+                        .setPassword(password)
                         .setPaymentId(cnasit)
                         .setOrderNumber(cnasit);
 
@@ -143,11 +149,11 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(DialogInterface dialog, int item) {
                 Card card = (Card) adapter.getItem(item);
-                String cnasit = eghl.generateId("CNASIT");
+                String cnasit = eghl.generateId("DEMO");
                 params = new PaymentParams.Builder()
-                        .setMerchantReturnUrl("https://test2pay.ghl.com/IPGSimulatorJeff/RespFrmGW.aspx")
+                        .setMerchantReturnUrl("SDK")
                         .setPaymentDesc("payment without previous pairing")
-                        .setCustPhone("60123456789")
+                        .setCustPhone("0123456789")
                         .setLanguageCode("EN")
                         .setPageTimeout("500")
                         .setServiceId(serviceEdit.getText().toString())
@@ -162,7 +168,8 @@ public class MainActivity extends AppCompatActivity {
                         .setPaymentMethod(paymentMethodEdit.getText().toString())
                         .setCardID(card.getCardId())
                         .setPreCheckoutID(expressResponse.getPreCheckoutId())
-
+                        .setPaymentGateway(paymentGateway)
+                        .setPassword(password)
                         .setPaymentId(cnasit)
                         .setOrderNumber(cnasit);
 
@@ -187,9 +194,9 @@ public class MainActivity extends AppCompatActivity {
         LightboxParams.Builder params = new LightboxParams.Builder()
                 .setReqToken(reqToken)
                 .setPairingToken(pairingToken)
-                .setLightBoxCallbackURL("https://radiant-reaches-88215.herokuapp.com/commands/callback")
-                .setMPEMerchantCheckoutID("a32d8440202b408dbdcc3ca8763d4625")
-                .setLightboxJS("https://sandbox.static.masterpass.com/dyn/js/switch/integration/MasterPass.client.js");
+                .setLightBoxCallbackURL("")  // http://...
+                .setMPEMerchantCheckoutID("") //id from masterpass
+                .setLightboxJS("https://sandbox.static.masterpass.com/dyn/js/switch/integration/MasterPass.client.js"); // Production: https://static.masterpass.com/dyn/js/switch/integration/MasterPass.client.js
 
 
         // Result of this pairing will be in the onActivityResult. With request code of EGHL.REQUEST_PAIRING.
@@ -200,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String token = tokenEdit.getText().toString();
         final String tokenType = tokenTypeEdit.getText().toString();
-        final String serviceId = "OM2";
+        final String serviceId = serviceEdit.getText().toString();
         final String amount = amountEdit.getText().toString();
         final String currencyCode = currencyEdit.getText().toString();
         final String paymentDesc = "eGHL Payment testing";
@@ -220,8 +227,8 @@ public class MainActivity extends AppCompatActivity {
         firstRequest.setTokenType(tokenType);
         firstRequest.setPaymentDesc(paymentDesc);
         firstRequest.setServiceID(serviceId);
-        firstRequest.setPassword("om212345");
-        firstRequest.setPaymentGateway("https://test2pay.ghl.com/IPGSGOM/Payment.aspx");
+        firstRequest.setPaymentGateway(paymentGateway);
+        firstRequest .setPassword(password);
 
         return firstRequest.build();
 
@@ -324,9 +331,10 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (status){
                     case "success":
-                        String cnasit = eghl.generateId("CNASIT");
+                        String cnasit = eghl.generateId("DEMO");
+
                         params = new PaymentParams.Builder()
-                                .setMerchantReturnUrl("https://test2pay.ghl.com/IPGSimulatorJeff/RespFrmGW.aspx")
+                                .setMerchantReturnUrl("SDK")
                                 .setPaymentDesc("payment without previous pairing")
                                 .setCustPhone("60123456789")
                                 .setLanguageCode("EN")
@@ -347,7 +355,9 @@ public class MainActivity extends AppCompatActivity {
                                 .setPairingVerifier(pairingVerifier)
                                 .setReqVerifier(reqVerifier)
                                 .setPaymentId(cnasit)
-                                .setOrderNumber(cnasit);
+                                .setOrderNumber(cnasit)
+                                .setPaymentGateway(paymentGateway)
+                                .setPassword(password);
 
                         Bundle paymentParams = params.build();
                         eghl.executePayment(paymentParams, MainActivity.this);
@@ -382,7 +392,8 @@ public class MainActivity extends AppCompatActivity {
         builder.setPaymentId(paymentId);
         builder.setAmount(amount);
         builder.setCurrencyCode(currencyCode);
-
+        builder.setPaymentGateway(paymentGateway);
+        builder.setPassword(password);
         eghl.executeCapture(this, builder.build(), new CaptureCallback() {
             @Override
             public void onResponse(CaptureResponse response) {

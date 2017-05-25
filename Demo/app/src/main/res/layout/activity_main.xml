@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:text="ooimei.yong@ghl.com"
+                    android:text="somebody@somesite.com"
                     android:hint="Email" />
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
@@ -74,7 +74,7 @@
                     android:id="@+id/nameEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Jeff"
+                    android:text="Somebody"
                     android:hint="Customer Name" />
             </android.support.design.widget.TextInputLayout>
 
@@ -86,7 +86,7 @@
                     android:id="@+id/serviceEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="GHL"
+                    android:text="SIT"
                     android:hint="Service ID" />
             </android.support.design.widget.TextInputLayout>
 

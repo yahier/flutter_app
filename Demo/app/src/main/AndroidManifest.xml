@@ -17,12 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <meta-data
+<!--    <meta-data
             android:name="com.epay.eghl.sdk.PASSWORD"
             android:value="tgv12345" />
         <meta-data
             android:name="com.epay.eghl.sdk.PAYMENT_GATEWAY"
-            android:value="https://test2pay.ghl.com/IPGSGOM/Payment.aspx" />
+            android:value="https://test2pay.ghl.com/IPGSGOM/Payment.aspx" />-->
 
 <!--
       <meta-data
