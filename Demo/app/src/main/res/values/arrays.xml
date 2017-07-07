@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="transaction_type">
+        <item>SALE</item>
+        <item>AUTH</item>
+
+    </string-array>
+
+    <string-array name="payment_method">
+        <item>ANY</item>
+        <item>CC</item>
+        <item>DD</item>
+
+    </string-array>
+
+
+</resources>

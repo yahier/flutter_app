@@ -17,25 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--    <meta-data
-            android:name="com.epay.eghl.sdk.PASSWORD"
-            android:value="tgv12345" />
-        <meta-data
-            android:name="com.epay.eghl.sdk.PAYMENT_GATEWAY"
-            android:value="https://test2pay.ghl.com/IPGSGOM/Payment.aspx" />-->
-
 <!--
-      <meta-data
-            android:name="com.epay.eghl.sdk.PASSWORD"
-            android:value="Gh1eG3H1" />
-        <meta-data
-            android:name="com.epay.eghl.sdk.PAYMENT_GATEWAY"
-            android:value="https://securepay.e-ghl.com/IPG/Payment.aspx" />-->
-<!--
-     <meta-data
-            android:name="com.epay.eghl.sdk.PASSWORD"
-            android:value="ghl12345" />
-        <meta-data
+         <meta-data
+                android:name="com.epay.eghl.sdk.PASSWORD"
+                android:value="sit12345" />
+         <meta-data
             android:name="com.epay.eghl.sdk.PAYMENT_GATEWAY"
             android:value="https://test2pay.ghl.com/IPGSG/Payment.aspx" />-->
 

@@ -1,13 +1,4 @@
 <resources>
     <string name="app_name">EGHL Demo</string>
 
-
-<!--    <string name="eghl_progress_message">this is from app strings xml progress </string>
-    <string name="eghl_verification_message">this is from app strings xml verification</string>
-    <string name="eghl_cancel_dialog_title">this is from app strings exit title</string>
-    <string name="eghl_cancel_dialog_message">this is from app strings message</string>
-    <string name="eghl_prevent_back_toast_message">this is from app strings toast</string>
-    <string name="eghl_ssl_error_dialog_title">this is from app strings title ssl </string>
-    <string name="eghl_ssl_error_dialog_message">this is from app strings message ssl </string>-->
-
 </resources>
