@@ -287,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPairingToken(pairingToken)
                 .setLightBoxCallbackURL("http://dummy123asd.com")  // http://...
                 .setMPEMerchantCheckoutID("323e1841a06c42599f5a96e04ee21c65") //id from masterpass
+                .setRequestBasicCheckout(true) // True will not load one time password / mscode page in masterpass lightbox
                 .setLightboxJS("https://sandbox.static.masterpass.com/dyn/js/switch/integration/MasterPass.client.js"); // Production: https://static.masterpass.com/dyn/js/switch/integration/MasterPass.client.js
 
 
