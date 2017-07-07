@@ -15,7 +15,7 @@
 * will only return WEBVIEW_ERROR on SSL handshake error (Lightbox)
 * SSL error dialog references the ones in string.xml (Lightbox)
 * Orientation change support for all activities
-* Added no internet connection detection, will show a Toast (Can also be overriden. See wiki).
+* Added no internet connection detection, will show a Toast (Can also be overriden. [See Integration guide](https://bitbucket.org/eghl/android/wiki/Integration%20Guide%20for%20eGHL%20SDK%20v2.x%20in%20Android) Extra Customization section).
 
 ### [**v2.2.6](https://bitbucket.org/eghl/android/commits/tag/v2.2.6)
 * Prevent exit on masterpass express payment when gateway is not yet loaded
