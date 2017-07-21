@@ -8,6 +8,9 @@
 
 # **Change Log** 
 
+### [**v2.2.8](https://bitbucket.org/eghl/android/commits/tag/v2.2.8)
+* Added delayed exit when user exits while SDK is processing the 2nd MPE request.
+
 ### [**v2.2.7](https://bitbucket.org/eghl/android/commits/tag/v2.2.7)
 * Internal improvement
 * New demo layout

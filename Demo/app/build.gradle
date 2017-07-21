@@ -7,7 +7,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.eghlsdk.demo"
+        applicationId "com.eghl.sdk.demo"
         minSdkVersion 17
         targetSdkVersion 25
         versionCode 21
@@ -37,7 +37,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
-    compile(name: 'eghl-sdk-v2.2.7', ext: 'aar')
+    compile(name: 'eghl-sdk-v2.2.8', ext: 'aar')
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.android.support:design:25.0.1'
     compile 'com.google.code.gson:gson:2.2.4'
