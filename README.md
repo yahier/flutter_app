@@ -7,6 +7,8 @@
 ****
 
 # **Change Log** 
+### [**v2.2.9](https://bitbucket.org/eghl/android/commits/tag/v2.2.9)
+* Added payment parameter for trigerring return URL (setTriggerReturnURL()).
 
 ### [**v2.2.8](https://bitbucket.org/eghl/android/commits/tag/v2.2.8)
 * Added delayed exit when user exits while SDK is processing the 2nd MPE request.
