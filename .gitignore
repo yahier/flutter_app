@@ -1,3 +1,5 @@
+# Mac OS system file
+.DS_Store
 
 # Built application files
 *.apk
@@ -35,11 +37,11 @@ captures/
 
 # IntelliJ
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/dictionaries
-.idea/libraries
+*/.idea/workspace.xml
+*/.idea/tasks.xml
+*/.idea/gradle.xml
+*/.idea/dictionaries
+*/.idea/libraries
 
 # Keystore files
 # Uncomment the following line if you do not want to check your keystore files in.
