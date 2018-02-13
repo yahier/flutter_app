@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.3](https://bitbucket.org/eghl/android/commits/tag/v2.3)
+* Added card UI
+
 ### [**v2.2.10](https://bitbucket.org/eghl/android/commits/tag/v2.2.10)
 * fixed issue setting MerchantReturnURL with non-url string will trigger error on nativescript
 * fixed issue unable to accept MerchantReturnURL with semicolons

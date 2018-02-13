@@ -104,9 +104,10 @@ public class MainActivity extends AppCompatActivity {
                         .setTransactionType(transactionTypeSpinner.getSelectedItem().toString())
                         .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
                         .setPaymentGateway(paymentGateway)
-                        .setTriggerReturnURL(true)
                         .setPassword(passwordEdit.getText().toString())
                         .setPaymentId(cnasit)
+//                        .setTriggerReturnURL(true)
+//                        .setCVVOptional(true)
                         .setOrderNumber(cnasit);
 
                 Bundle paymentParams = params.build();
