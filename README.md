@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+### [**v2.3.1](https://bitbucket.org/eghl/android/commits/tag/v2.3.1)
+* Fixed SDK redirect to Unknown page after key in otp. 
+* Fixed SDK redirect to akward page after returing ni from HOST Sim for Card payment in staging
+
 ### [**v2.3](https://bitbucket.org/eghl/android/commits/tag/v2.3)
 * Added card UI
 
