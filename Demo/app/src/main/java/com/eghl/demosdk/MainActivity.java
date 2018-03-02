@@ -85,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String cnasit = eghl.generateId("CNASIT");
-                String cnasit = eghl.generateId("DEMO");
+                String paymentID= eghl.generateId("DEMO");
                 params = new PaymentParams.Builder()
                         .setMerchantReturnUrl("SDK")
                         .setPaymentDesc("eGHL Payment testing")
@@ -105,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
                         .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
                         .setPaymentGateway(paymentGateway)
                         .setPassword(passwordEdit.getText().toString())
-                        .setPaymentId(cnasit)
+                        .setPaymentId(paymentID)
 //                        .setTriggerReturnURL(true)
 //                        .setCVVOptional(true)
-                        .setOrderNumber(cnasit);
+                        .setOrderNumber(paymentID);
 
                 Bundle paymentParams = params.build();
                 eghl.executePayment(paymentParams, MainActivity.this);
@@ -245,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(DialogInterface dialog, int item) {
                 Card card = (Card) adapter.getItem(item);
-                String cnasit = eghl.generateId("DEMO");
+                String paymentID = eghl.generateId("DEMO");
                 params = new PaymentParams.Builder()
                         .setMerchantReturnUrl("SDK")
                         .setPaymentDesc("payment without previous pairing")
@@ -264,10 +263,10 @@ public class MainActivity extends AppCompatActivity {
                         .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
                         .setCardID(card.getCardId())
                         .setPreCheckoutID(expressResponse.getPreCheckoutId())
-                        .setPaymentId(cnasit)
+                        .setPaymentId(paymentID)
                         .setPaymentGateway(paymentGateway)
                         .setPassword(passwordEdit.getText().toString())
-                        .setOrderNumber(cnasit);
+                        .setOrderNumber(paymentID);
 
                 Bundle paymentParams = params.build();
                 eghl.executePayment(paymentParams, MainActivity.this);
