@@ -7,8 +7,15 @@
 ****
 
 # **Change Log** 
+### [**v2.3.3](https://bitbucket.org/eghl/android/commits/tag/v2.3.3)
+* Fixed sending empty card will cause crash for subsequent payment.
+* Fixed added flag to make checkbox for tokenizing become mandatory (by default is not mandatory)
+* Added some gap between two card type image.
+* Update card default card image to square.
+
 ### [**v2.3.2](https://bitbucket.org/eghl/android/commits/tag/v2.3.2)
 * Fixed issue wrong card format display when user edit in the middle of the card. 
+
 ### [**v2.3.1](https://bitbucket.org/eghl/android/commits/tag/v2.3.1)
 * Fixed SDK redirect to Unknown page after key in otp. 
 * Fixed SDK redirect to akward page after returing from HOST SIMULATOR for Card payment in staging
