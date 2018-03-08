@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPaymentId(paymentID)
 //                        .setTriggerReturnURL(true)
 //                        .setCVVOptional(true)
+//                        .setTokenizeRequired(true)
                         .setOrderNumber(paymentID);
 
                 Bundle paymentParams = params.build();
