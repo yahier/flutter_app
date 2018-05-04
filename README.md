@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.3.4](https://bitbucket.org/eghl/android/commits/tag/v2.3.4)
+* Allow merchant to send HashValue.
+
 ### [**v2.3.3](https://bitbucket.org/eghl/android/commits/tag/v2.3.3)
 * Fixed sending empty card will cause crash for subsequent payment.
 * Fixed added flag to make checkbox for tokenizing become mandatory (by default is not mandatory)

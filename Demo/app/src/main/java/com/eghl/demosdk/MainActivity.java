@@ -21,6 +21,7 @@ import com.eghl.demosdk.models.Card;
 import com.eghl.demosdk.models.ExpressResponse;
 import com.eghl.sdk.EGHL;
 import com.eghl.sdk.ELogger;
+import com.eghl.sdk.Utils;
 import com.eghl.sdk.interfaces.CaptureCallback;
 import com.eghl.sdk.interfaces.MasterpassCallback;
 import com.eghl.sdk.interfaces.QueryCallback;
@@ -85,26 +86,34 @@ public class MainActivity extends AppCompatActivity {
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String password = passwordEdit.getText().toString();
+                String serviceId = serviceEdit.getText().toString();
                 String paymentID= eghl.generateId("DEMO");
+                String merchantReturnURL = "SDK";
+                String amount = amountEdit.getText().toString();
+                String currencyCode = currencyEdit.getText().toString();
+                String pageTimeout = "500";
+
                 params = new PaymentParams.Builder()
-                        .setMerchantReturnUrl("SDK")
+                        .setMerchantReturnUrl(merchantReturnURL)
                         .setPaymentDesc("eGHL Payment testing")
                         .setCustPhone("60123456789")
                         .setLanguageCode("EN")
-                        .setPageTimeout("500")
-                        .setServiceId(serviceEdit.getText().toString())
-                        .setAmount(amountEdit.getText().toString())
+                        .setPageTimeout(pageTimeout)
+                        .setServiceId(serviceId)
+                        .setAmount(amount)
                         .setCustName(nameEdit.getText().toString())
                         .setCustEmail(emailEdit.getText().toString())
                         .setMerchantName(merchantEdit.getText().toString())
-                        .setCurrencyCode(currencyEdit.getText().toString())
+                        .setCurrencyCode(currencyCode)
                         .setToken(tokenEdit.getText().toString())
                         .setTokenType(tokenTypeEdit.getText().toString())
                         .setTransactionType(transactionTypeSpinner.getSelectedItem().toString())
                         .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
                         .setPaymentGateway(paymentGateway)
-                        .setPassword(passwordEdit.getText().toString())
+                        .setPassword(password)
                         .setPaymentId(paymentID)
+//                        .setHashValue(hashValue)
 //                        .setTriggerReturnURL(true)
 //                        .setCVVOptional(true)
 //                        .setTokenizeRequired(true)
