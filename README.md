@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.3.5](https://bitbucket.org/eghl/android/commits/tag/v2.3.5)
+* Update card page to retrieve tokenized card.
+
 ### [**v2.3.4](https://bitbucket.org/eghl/android/commits/tag/v2.3.4)
 * Allow merchant to send HashValue.
 
