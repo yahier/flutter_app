@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+### [**v2.4.0](https://bitbucket.org/eghl/android/commits/tag/v2.4.0)
+* Introduce eGHL Optimize
+* Fixed cardPan validation error in card page
+
 ### [**v2.3.5](https://bitbucket.org/eghl/android/commits/tag/v2.3.5)
 * Update card page to retrieve tokenized card.
 
