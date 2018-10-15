@@ -21,7 +21,6 @@ import com.eghl.demosdk.models.Card;
 import com.eghl.demosdk.models.ExpressResponse;
 import com.eghl.sdk.EGHL;
 import com.eghl.sdk.ELogger;
-import com.eghl.sdk.Utils;
 import com.eghl.sdk.interfaces.CaptureCallback;
 import com.eghl.sdk.interfaces.MasterpassCallback;
 import com.eghl.sdk.interfaces.QueryCallback;
@@ -49,28 +48,27 @@ public class MainActivity extends AppCompatActivity {
     private PaymentParams.Builder params;
     private EGHL eghl;
 
-    private EditText tokenTypeEdit;
-    private EditText tokenEdit;
-    private EditText amountEdit;
-    private EditText merchantEdit;
-    private EditText emailEdit;
-    private EditText nameEdit;
-    private EditText serviceEdit;
-    private EditText currencyEdit;
-    private EditText passwordEdit;
-    private Spinner transactionTypeSpinner;
-    private Spinner paymentMethodSpinner;
-    private ProgressDialog progress;
-    private Button paymentButton;
-    private Button masterpassButton;
-    private Switch prodSwitch;
-
+    private EditText editTextTokenType;
+    private EditText editTextToken;
+    private EditText editTextAmount;
+    private EditText editTextMerchantName;
+    private EditText editTextEmail;
+    private EditText editTextName;
+    private EditText editTextServiceID;
+    private EditText editTextCurrencyCode;
+    private EditText editTextPassword;
+    private Spinner spinnerTransactionType;
+    private Spinner spinnerPaymentMethod;
+    private ProgressDialog progressDialog;
+    private Button buttonPayment;
+    private Button buttonOptimize;
+    private Button buttonMasterpass;
+    private Switch switchProd;
 
     private String paymentGateway = TEST_HOST;
     private Intent lastPaymentData;
-    private Button queryButton;
-    private Button captureButton;
-
+    private Button buttonQuery;
+    private Button buttonCapture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,16 +80,45 @@ public class MainActivity extends AppCompatActivity {
         initListeners();
     }
 
+    private void initView() {
+
+        buttonQuery = (Button) findViewById(R.id.buttonQuery);
+        buttonCapture = (Button) findViewById(R.id.buttonCapture);
+        spinnerTransactionType = (Spinner) findViewById(R.id.spinnerTransactionType);
+        spinnerPaymentMethod = (Spinner) findViewById(R.id.spinnerPaymentMethod);
+        switchProd = (Switch) findViewById(R.id.switchProd);
+
+        editTextAmount = (EditText) findViewById(R.id.editTextAmount);
+        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextMerchantName = (EditText) findViewById(R.id.editTextMerchantName);
+        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextName = (EditText) findViewById(R.id.editTextName);
+        editTextServiceID = (EditText) findViewById(R.id.editTextServiceID);
+
+        editTextCurrencyCode = (EditText) findViewById(R.id.editTextCurrencyCode);
+
+        editTextToken = (EditText) findViewById(R.id.editTextToken);
+        editTextTokenType = (EditText) findViewById(R.id.editTextTokenType);
+
+        buttonPayment = (Button) findViewById(R.id.buttonPayment);
+        buttonOptimize = (Button) findViewById(R.id.buttonOptimize);
+        buttonMasterpass = (Button) findViewById(R.id.buttonMasterpass);
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Please wait...");
+
+    }
+
     private void initListeners() {
-        paymentButton.setOnClickListener(new View.OnClickListener() {
+        buttonPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String password = passwordEdit.getText().toString();
-                String serviceId = serviceEdit.getText().toString();
+                String password = editTextPassword.getText().toString();
+                String serviceId = editTextServiceID.getText().toString();
                 String paymentID= eghl.generateId("DEMO");
                 String merchantReturnURL = "SDK";
-                String amount = amountEdit.getText().toString();
-                String currencyCode = currencyEdit.getText().toString();
+                String amount = editTextAmount.getText().toString();
+                String currencyCode = editTextCurrencyCode.getText().toString();
                 String pageTimeout = "500";
 
                 params = new PaymentParams.Builder()
@@ -102,14 +129,14 @@ public class MainActivity extends AppCompatActivity {
                         .setPageTimeout(pageTimeout)
                         .setServiceId(serviceId)
                         .setAmount(amount)
-                        .setCustName(nameEdit.getText().toString())
-                        .setCustEmail(emailEdit.getText().toString())
-                        .setMerchantName(merchantEdit.getText().toString())
+                        .setCustName(editTextName.getText().toString())
+                        .setCustEmail(editTextEmail.getText().toString())
+                        .setMerchantName(editTextMerchantName.getText().toString())
                         .setCurrencyCode(currencyCode)
-                        .setToken(tokenEdit.getText().toString())
-                        .setTokenType(tokenTypeEdit.getText().toString())
-                        .setTransactionType(transactionTypeSpinner.getSelectedItem().toString())
-                        .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
+                        .setToken(editTextToken.getText().toString())
+                        .setTokenType(editTextTokenType.getText().toString())
+                        .setTransactionType(spinnerTransactionType.getSelectedItem().toString())
+                        .setPaymentMethod(spinnerPaymentMethod.getSelectedItem().toString())
                         .setPaymentGateway(paymentGateway)
                         .setPassword(password)
                         .setPaymentId(paymentID)
@@ -125,18 +152,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        masterpassButton.setOnClickListener(new View.OnClickListener() {
+        buttonOptimize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CardPageActivity.class);
+                startActivityForResult(intent, EGHL.REQUEST_PAYMENT);
+            }
+        });
+
+        buttonMasterpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle firstRequest = buildMasterpassReq();
                 if (firstRequest == null)
                     return;
-                progress.show();
+                progressDialog.show();
                 eghl.executeMasterpassRequest(MainActivity.this, firstRequest, new MasterpassCallback() {
                     @Override
                     public void onResponse(final String response) {
                         // Handle pairing or express
-                        progress.dismiss();
+                        progressDialog.dismiss();
                         if (response.contains(Params.MASTERPASS_REQ_TOKEN) || response.contains(Params.MASTERPASS_PAIRING_TOKEN)) {
                             // Needs pairing
                             proceedPairing(response);
@@ -150,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onError(Exception e) {
                         e.printStackTrace();
                         Log.e(TAG, "http error", e);
-                        progress.dismiss();
+                        progressDialog.dismiss();
                     }
                 });
 
@@ -158,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        prodSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchProd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -169,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        queryButton.setOnClickListener(new View.OnClickListener() {
+        buttonQuery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 queryLastPayment(lastPaymentData);
@@ -177,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        captureButton.setOnClickListener(new View.OnClickListener() {
+        buttonCapture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 captureLastPayment(lastPaymentData);
@@ -212,6 +247,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void captureTransaction(String paymentMethod, String serviceID, String paymentId, String amount, String currencyCode) {
+        CaptureParams.Builder builder = new CaptureParams.Builder();
+        builder.setPaymentMethod(paymentMethod);
+        builder.setServiceId(serviceID);
+        builder.setPaymentId(paymentId);
+        builder.setAmount(amount);
+        builder.setPaymentGateway(paymentGateway);
+        builder.setPassword(editTextPassword.getText().toString());
+        builder.setCurrencyCode(currencyCode);
+
+
+        progressDialog.show();
+        eghl.executeCapture(this, builder.build(), new CaptureCallback() {
+            @Override
+            public void onResponse(CaptureResponse response) {
+                progressDialog.dismiss();
+                String rawResponse = response.getRawResponse();
+                String txnMessage = response.getTxnMessage();
+                String txnStatus = response.getTxnStatus();
+                showResultDialog(rawResponse, txnMessage, txnStatus);
+                Log.d(TAG, "onResponse: " + rawResponse);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                progressDialog.dismiss();
+                Log.e(TAG, "onError: capture", e);
+                Toast.makeText(MainActivity.this, "Capture error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void queryLastPayment(Intent lastPaymentData) {
         if (lastPaymentData == null) {
             Toast.makeText(this, "No payment record yet. Make a payment transaction and try again.", Toast.LENGTH_SHORT).show();
@@ -242,6 +309,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void queryTransaction(String paymentMethod, String serviceID, String paymentId, String amount, String currencyCode) {
+        QueryParams.Builder builder = new QueryParams.Builder();
+        builder.setPaymentMethod(paymentMethod);
+        builder.setServiceId(serviceID);
+        builder.setPaymentId(paymentId);
+        builder.setAmount(amount);
+        builder.setPaymentGateway(paymentGateway);
+        builder.setPassword(editTextPassword.getText().toString());
+        builder.setCurrencyCode(currencyCode);
+
+        progressDialog.show();
+        eghl.executeQuery(this, builder.build(), new QueryCallback() {
+            @Override
+            public void onResponse(QueryResponse response) {
+                progressDialog.dismiss();
+                String rawResponse = response.getRawResponse();
+                String txnMessage = response.getTxnMessage();
+                String txnStatus = response.getTxnStatus();
+                showResultDialog(rawResponse, txnMessage, txnStatus);
+                Log.d(TAG, "onResponse: " + rawResponse);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                progressDialog.dismiss();
+                Log.e(TAG, "onError: query", e);
+                Toast.makeText(MainActivity.this, "Query error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void proceedExpress(String response) {
         final ExpressResponse expressResponse = new Gson().fromJson(response, ExpressResponse.class);
@@ -261,21 +358,21 @@ public class MainActivity extends AppCompatActivity {
                         .setCustPhone("60123456789")
                         .setLanguageCode("EN")
                         .setPageTimeout("500")
-                        .setServiceId(serviceEdit.getText().toString())
-                        .setAmount(amountEdit.getText().toString())
-                        .setCustName(nameEdit.getText().toString())
-                        .setCustEmail(emailEdit.getText().toString())
-                        .setMerchantName(merchantEdit.getText().toString())
-                        .setCurrencyCode(currencyEdit.getText().toString())
-                        .setToken(tokenEdit.getText().toString())
-                        .setTokenType(tokenTypeEdit.getText().toString())
-                        .setTransactionType(transactionTypeSpinner.getSelectedItem().toString())
-                        .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
+                        .setServiceId(editTextServiceID.getText().toString())
+                        .setAmount(editTextAmount.getText().toString())
+                        .setCustName(editTextName.getText().toString())
+                        .setCustEmail(editTextEmail.getText().toString())
+                        .setMerchantName(editTextMerchantName.getText().toString())
+                        .setCurrencyCode(editTextCurrencyCode.getText().toString())
+                        .setToken(editTextToken.getText().toString())
+                        .setTokenType(editTextTokenType.getText().toString())
+                        .setTransactionType(spinnerTransactionType.getSelectedItem().toString())
+                        .setPaymentMethod(spinnerPaymentMethod.getSelectedItem().toString())
                         .setCardID(card.getCardId())
                         .setPreCheckoutID(expressResponse.getPreCheckoutId())
                         .setPaymentId(paymentID)
                         .setPaymentGateway(paymentGateway)
-                        .setPassword(passwordEdit.getText().toString())
+                        .setPassword(editTextPassword.getText().toString())
                         .setOrderNumber(paymentID);
 
                 Bundle paymentParams = params.build();
@@ -308,11 +405,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Bundle buildMasterpassReq() {
 
-        final String token = tokenEdit.getText().toString();
-        final String tokenType = tokenTypeEdit.getText().toString();
-        final String serviceId = serviceEdit.getText().toString();
-        final String amount = amountEdit.getText().toString();
-        final String currencyCode = currencyEdit.getText().toString();
+        final String token = editTextToken.getText().toString();
+        final String tokenType = editTextTokenType.getText().toString();
+        final String serviceId = editTextServiceID.getText().toString();
+        final String amount = editTextAmount.getText().toString();
+        final String currencyCode = editTextCurrencyCode.getText().toString();
         final String paymentDesc = "eGHL Payment testing";
 
         if (TextUtils.isEmpty(token)) {
@@ -331,40 +428,11 @@ public class MainActivity extends AppCompatActivity {
         firstRequest.setPaymentDesc(paymentDesc);
         firstRequest.setServiceID(serviceId);
         firstRequest.setPaymentGateway(paymentGateway);
-        firstRequest.setPassword(passwordEdit.getText().toString());
+        firstRequest.setPassword(editTextPassword.getText().toString());
 
 
         return firstRequest.build();
 
-
-    }
-
-    private void initView() {
-
-        queryButton = (Button) findViewById(R.id.queryButton);
-        captureButton = (Button) findViewById(R.id.captureButton);
-        transactionTypeSpinner = (Spinner) findViewById(R.id.transactionTypeSpinner);
-        paymentMethodSpinner = (Spinner) findViewById(R.id.paymentMethodSpinner);
-        prodSwitch = (Switch) findViewById(R.id.prodSwitch);
-
-
-        amountEdit = (EditText) findViewById(R.id.amountEdit);
-        passwordEdit = (EditText) findViewById(R.id.passwordEdit);
-        merchantEdit = (EditText) findViewById(R.id.merchantEdit);
-        emailEdit = (EditText) findViewById(R.id.emailEdit);
-        nameEdit = (EditText) findViewById(R.id.nameEdit);
-        serviceEdit = (EditText) findViewById(R.id.serviceEdit);
-
-        currencyEdit = (EditText) findViewById(R.id.currencyEdit);
-
-        tokenEdit = (EditText) findViewById(R.id.tokenEdit);
-        tokenTypeEdit = (EditText) findViewById(R.id.tokenTypeEdit);
-
-        paymentButton = (Button) findViewById(R.id.checkout);
-        masterpassButton = (Button) findViewById(R.id.masterpass);
-
-        progress = new ProgressDialog(MainActivity.this);
-        progress.setMessage("Please wait...");
 
     }
 
@@ -424,16 +492,16 @@ public class MainActivity extends AppCompatActivity {
                                 .setCustPhone("60123456789")
                                 .setLanguageCode("EN")
                                 .setPageTimeout("500")
-                                .setServiceId(serviceEdit.getText().toString())
-                                .setAmount(amountEdit.getText().toString())
-                                .setCustName(nameEdit.getText().toString())
-                                .setCustEmail(emailEdit.getText().toString())
-                                .setMerchantName(merchantEdit.getText().toString())
-                                .setCurrencyCode(currencyEdit.getText().toString())
-                                .setToken(tokenEdit.getText().toString())
-                                .setTokenType(tokenTypeEdit.getText().toString())
-                                .setTransactionType(transactionTypeSpinner.getSelectedItem().toString())
-                                .setPaymentMethod(paymentMethodSpinner.getSelectedItem().toString())
+                                .setServiceId(editTextServiceID.getText().toString())
+                                .setAmount(editTextAmount.getText().toString())
+                                .setCustName(editTextName.getText().toString())
+                                .setCustEmail(editTextEmail.getText().toString())
+                                .setMerchantName(editTextMerchantName.getText().toString())
+                                .setCurrencyCode(editTextCurrencyCode.getText().toString())
+                                .setToken(editTextToken.getText().toString())
+                                .setTokenType(editTextTokenType.getText().toString())
+                                .setTransactionType(spinnerTransactionType.getSelectedItem().toString())
+                                .setPaymentMethod(spinnerPaymentMethod.getSelectedItem().toString())
                                 .setPairingToken(pairingToken)
                                 .setReqToken(reqToken)
                                 .setCheckoutResourceURL(checkoutURL)
@@ -441,7 +509,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setReqVerifier(reqVerifier)
                                 .setPaymentId(cnasit)
                                 .setPaymentGateway(paymentGateway)
-                                .setPassword(passwordEdit.getText().toString())
+                                .setPassword(editTextPassword.getText().toString())
                                 .setOrderNumber(cnasit);
 
                         Bundle paymentParams = params.build();
@@ -468,68 +536,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-    }
-
-    private void captureTransaction(String paymentMethod, String serviceID, String paymentId, String amount, String currencyCode) {
-        CaptureParams.Builder builder = new CaptureParams.Builder();
-        builder.setPaymentMethod(paymentMethod);
-        builder.setServiceId(serviceID);
-        builder.setPaymentId(paymentId);
-        builder.setAmount(amount);
-        builder.setPaymentGateway(paymentGateway);
-        builder.setPassword(passwordEdit.getText().toString());
-        builder.setCurrencyCode(currencyCode);
-
-
-        progress.show();
-        eghl.executeCapture(this, builder.build(), new CaptureCallback() {
-            @Override
-            public void onResponse(CaptureResponse response) {
-                progress.dismiss();
-                String rawResponse = response.getRawResponse();
-                String txnMessage = response.getTxnMessage();
-                String txnStatus = response.getTxnStatus();
-                showResultDialog(rawResponse, txnMessage, txnStatus);
-                Log.d(TAG, "onResponse: " + rawResponse);
-            }
-
-            @Override
-            public void onError(Exception e) {
-                progress.dismiss();
-                Log.e(TAG, "onError: capture", e);
-                Toast.makeText(MainActivity.this, "Capture error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    private void queryTransaction(String paymentMethod, String serviceID, String paymentId, String amount, String currencyCode) {
-        QueryParams.Builder builder = new QueryParams.Builder();
-        builder.setPaymentMethod(paymentMethod);
-        builder.setServiceId(serviceID);
-        builder.setPaymentId(paymentId);
-        builder.setAmount(amount);
-        builder.setPaymentGateway(paymentGateway);
-        builder.setPassword(passwordEdit.getText().toString());
-        builder.setCurrencyCode(currencyCode);
-
-        progress.show();
-        eghl.executeQuery(this, builder.build(), new QueryCallback() {
-            @Override
-            public void onResponse(QueryResponse response) {
-                progress.dismiss();
-                String rawResponse = response.getRawResponse();
-                String txnMessage = response.getTxnMessage();
-                String txnStatus = response.getTxnStatus();
-                showResultDialog(rawResponse, txnMessage, txnStatus);
-                Log.d(TAG, "onResponse: " + rawResponse);
-            }
-
-            @Override
-            public void onError(Exception e) {
-                progress.dismiss();
-                Log.e(TAG, "onError: query", e);
-                Toast.makeText(MainActivity.this, "Query error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void showResultDialog(String rawResponse, String txnMessage, String txnStatus) {

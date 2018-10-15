@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_marginStart="8dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.eghl.demosdk.MainActivity"
-    android:layout_marginLeft="8dp">
-
-
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.eghl.demosdk.MainActivity">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -20,25 +17,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-
-        android:layout_marginBottom="8dp"
-        >
+        android:layout_marginBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/merchantEdit"
+                    android:id="@+id/editTextMerchantName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="GHL ePayment"
-                    android:hint="Merchant Name" />
+                    android:hint="Merchant Name"
+                    android:text="GHL ePayment" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -46,96 +41,93 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/emailEdit"
+                    android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Email"
                     android:inputType="textEmailAddress"
-                    android:text="somebody@somesite.com"
-                    android:hint="Email" />
+                    android:text="somebody@somesite.com" />
             </android.support.design.widget.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/amountEdit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:text="1.00"
-                        android:hint="Amount" />
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/nameEdit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Somebody"
-                        android:hint="Customer Name" />
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/serviceEdit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="SIT"
-                        android:hint="Service ID" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/currencyEdit"
-                        android:text="MYR"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Currency" />
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                     <EditText
-                        android:id="@+id/tokenEdit"
+                        android:id="@+id/editTextAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:inputType="numberDecimal"
+                        android:text="1.00" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Customer Name"
+                        android:text="Somebody" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/editTextServiceID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Service ID"
+                        android:text="SIT" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/editTextCurrencyCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Currency"
+                        android:text="MYR" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/editTextToken"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Token" />
@@ -143,171 +135,158 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                     <EditText
-                        android:id="@+id/tokenTypeEdit"
+                        android:id="@+id/editTextTokenType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Token Type" />
                 </android.support.design.widget.TextInputLayout>
-
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textSize="11dp"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:text="Transaction Type"
-                        />
+                        android:textSize="11dp" />
 
                     <Spinner
-                        android:id="@+id/transactionTypeSpinner"
+                        android:id="@+id/spinnerTransactionType"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="8dp"
                         android:layout_height="wrap_content"
-                        android:entries="@array/transaction_type"
-                        />
+                        android:layout_marginTop="8dp"
+                        android:entries="@array/transaction_type" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textSize="11dp"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:text="Payment Method"
-                        />
+                        android:textSize="11dp" />
 
                     <Spinner
-                        android:id="@+id/paymentMethodSpinner"
+                        android:id="@+id/spinnerPaymentMethod"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:entries="@array/payment_method" />
 
                 </LinearLayout>
-
-
-
             </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
 
-        <Switch
-                android:id="@+id/prodSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Use Production Host"
-                />
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/passwordEdit"
+                <Switch
+                    android:id="@+id/switchProd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Use Production Host" />
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textVisiblePassword"
-                    android:text="sit12345"
-                    android:hint="Password" />
+                    android:layout_weight="1">
 
+                    <EditText
+                        android:id="@+id/editTextPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:inputType="textVisiblePassword"
+                        android:text="sit12345" />
 
-            </android.support.design.widget.TextInputLayout>
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonPanel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
-
                 <com.eghl.sdk.MasterPassButton
-                    android:id="@+id/masterpass"
+                    android:id="@+id/buttonMasterpass"
                     android:layout_width="0dp"
                     android:layout_height="38dp"
                     android:layout_gravity="center"
-
                     android:layout_weight="1" />
 
-
                 <Button
-                    android:id="@+id/checkout"
+                    android:id="@+id/buttonPayment"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-
                     android:layout_weight="1"
                     android:text="Checkout" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonOptimize"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Optimze" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="The below transactions will apply to the last payment that has occurred."
-                />
+                android:gravity="center"
+                android:text="The below transactions will apply to the last payment that has occurred." />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <Button
-                    android:id="@+id/captureButton"
+                    android:id="@+id/buttonCapture"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-
                     android:layout_weight="1"
                     android:text="Capture" />
+
                 <Button
-                    android:id="@+id/queryButton"
+                    android:id="@+id/buttonQuery"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-
                     android:layout_weight="1"
                     android:text="Query" />
 
-
             </LinearLayout>
         </LinearLayout>
-
-
     </ScrollView>
-
-
-
-
-
 </RelativeLayout>

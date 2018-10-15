@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.eghl.demosdk.CardPageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/fragmenteGHLCardPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/checkBoxCustomerConsent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eghl_card_tokenize_disclaimer" />
+
+        <Button
+            android:id="@+id/buttonMakePayment"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Make Payment" />
+
+    </LinearLayout>
+
+</ScrollView>
