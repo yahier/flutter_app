@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
                 params = new PaymentParams.Builder()
                         .setMerchantReturnUrl(merchantReturnURL)
+                        .setMerchantCallbackUrl("https://abc.com/geteghlresponse")
                         .setPaymentDesc("eGHL Payment testing")
                         .setCustPhone("60123456789")
                         .setLanguageCode("EN")
