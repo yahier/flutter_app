@@ -1,0 +1,7 @@
+eghl-sdk-v2.4.0r1.aar
+1. The version v2.4.0r1 support API 17. However, we do not recommend merchant to use this version since Android only enabled TLS 1.2 by default after API 19.
+2. Due to PCI Compliance, eGHL Payment Gateway is required to use protocol 1.2.
+4. In the other word, the device with Android below 4.4 version might not be able to load eGHL payment page.
+
+* For Query and Capture, eGHL SDK had enabled TLS 1.2 manually for API >= 16 and lower than 19
+* For Sale & Auth, we did not enabled it for TLS 1.2 since it is using webview to load the payment page.
