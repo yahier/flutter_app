@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.4.1](https://bitbucket.org/eghl/android/commits/tag/v2.4.1)
+* Disable popup webview in staging environment
+
 ### [**v2.4.0](https://bitbucket.org/eghl/android/commits/tag/v2.4.0)
 * Introduce eGHL Optimize
 * Fixed cardPan validation error in card page
