@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+### [**v2.4.2](https://bitbucket.org/eghl/android/commits/tag/v2.4.2)
+* Enchanced eGHL Optimize 
+* Added URL SSL certificate error exclusion
+
 ### [**v2.4.1](https://bitbucket.org/eghl/android/commits/tag/v2.4.1)
 * Disable popup webview in staging environment
 
