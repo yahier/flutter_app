@@ -7,6 +7,10 @@
 ****
 
 # **Change Log** 
+### [**v2.4.4](https://bitbucket.org/eghl/android/commits/tag/v2.4.4)
+* Fixed decimal formatter bug
+* Added QueryCount parameter
+
 ### [**v2.4.3](https://bitbucket.org/eghl/android/commits/tag/v2.4.3)
 * Enhanced SSL certificate error URL exclusion
 
