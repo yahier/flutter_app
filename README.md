@@ -7,6 +7,11 @@
 ****
 
 # **Change Log** 
+### [**v2.4.5](https://bitbucket.org/eghl/android/commits/tag/v2.4.5)
+* Fixed JavaScript console issue
+* Fixed CardPage validation issue
+* Excluded QueryCount from payment URL
+
 ### [**v2.4.4](https://bitbucket.org/eghl/android/commits/tag/v2.4.4)
 * Fixed decimal formatter bug
 * Added QueryCount parameter
