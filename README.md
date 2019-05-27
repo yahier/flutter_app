@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.4.6](https://bitbucket.org/eghl/android/commits/tag/v2.4.6)
+* Fixed Amount issue when the device's language is set to Indonesia 
+
 ### [**v2.4.5](https://bitbucket.org/eghl/android/commits/tag/v2.4.5)
 * Fixed JavaScript console issue
 * Fixed CardPage validation issue
