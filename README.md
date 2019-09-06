@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.4.7](https://bitbucket.org/eghl/android/commits/tag/v2.4.7)
+* Created setQueryHashValue params to prioritize query HashValue when .setPassword() is not used 
+
 ### [**v2.4.6](https://bitbucket.org/eghl/android/commits/tag/v2.4.6)
 * Fixed Amount issue when the device's language is set to Indonesia 
 
