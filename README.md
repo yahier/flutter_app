@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.5.0](https://bitbucket.org/eghl/android/commits/tag/v2.5.0)
+* Migrate to AndroidX
+
 ### [**v2.4.7](https://bitbucket.org/eghl/android/commits/tag/v2.4.7)
 * Created setQueryHashValue params to prioritize query HashValue when .setPassword() is not used 
 
