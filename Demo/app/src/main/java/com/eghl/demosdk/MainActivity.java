@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -128,18 +128,18 @@ public class MainActivity extends AppCompatActivity {
                         .setCustPhone("60123456789")
                         .setLanguageCode("EN")
                         .setPageTimeout(pageTimeout)
-                        .setServiceId(serviceId)
+                        .setServiceId("JMR")
                         .setAmount(amount)
                         .setCustName(editTextName.getText().toString())
                         .setCustEmail(editTextEmail.getText().toString())
                         .setMerchantName(editTextMerchantName.getText().toString())
-                        .setCurrencyCode(currencyCode)
+                        .setCurrencyCode("SGD")
                         .setToken(editTextToken.getText().toString())
                         .setTokenType(editTextTokenType.getText().toString())
                         .setTransactionType(spinnerTransactionType.getSelectedItem().toString())
                         .setPaymentMethod(spinnerPaymentMethod.getSelectedItem().toString())
                         .setPaymentGateway(paymentGateway)
-                        .setPassword(password)
+                        .setPassword("jmr12345")
                         .setPaymentId(paymentID)
 //                        .setHashValue(hashValue)
 //                        .setTriggerReturnURL(true)
