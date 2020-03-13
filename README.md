@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.5.2](https://bitbucket.org/eghl/android/commits/tag/v2.5.2)
+* Include Javascript to remove Popup in WebView
+
 ### [**v2.5.1](https://bitbucket.org/eghl/android/commits/tag/v2.5.1)
 * Update dependencies and deprecated class
 * Inject JS to payment page
