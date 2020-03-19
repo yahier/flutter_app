@@ -12,7 +12,6 @@
 
 ### [**v2.5.1](https://bitbucket.org/eghl/android/commits/tag/v2.5.1)
 * Update dependencies and deprecated class
-* Inject JS to payment page
 
 ### [**v2.5.0](https://bitbucket.org/eghl/android/commits/tag/v2.5.0)
 * Migrate to AndroidX
