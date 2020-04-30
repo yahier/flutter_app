@@ -7,6 +7,9 @@
 ****
 
 # **Change Log** 
+### [**v2.5.3](https://bitbucket.org/eghl/android/commits/tag/v2.5.3)
+* Added CustID parameter
+
 ### [**v2.5.2](https://bitbucket.org/eghl/android/commits/tag/v2.5.2)
 * Include Javascript to remove Popup in WebView
 
