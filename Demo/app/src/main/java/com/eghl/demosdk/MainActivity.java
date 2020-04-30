@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPageTimeout(pageTimeout)
                         .setServiceId(serviceId)
                         .setAmount(amount)
+//                        .setCustId("1234")
                         .setCustName(editTextName.getText().toString())
                         .setCustEmail(editTextEmail.getText().toString())
                         .setMerchantName(editTextMerchantName.getText().toString())

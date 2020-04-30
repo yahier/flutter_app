@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :eghl-sdk-v2.5.3-X:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e5548ada10849a11b74aadc85f3e4d8/eghl-sdk-v2.5.3-X/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e5548ada10849a11b74aadc85f3e4d8/eghl-sdk-v2.5.3-X/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
