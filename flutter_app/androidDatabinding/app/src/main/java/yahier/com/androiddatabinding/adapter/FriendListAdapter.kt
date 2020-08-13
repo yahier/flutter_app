@@ -3,6 +3,9 @@ package yahier.com.androiddatabinding.adapter
 import yahier.com.androiddatabinding.R
 import yahier.com.androiddatabinding.bean.Person
 
+/**
+ * 一个adapter的示例，够简洁吧
+ */
 class FriendListAdapter(
     val list: MutableList<Person>,
     onCellClick: (Int) -> Unit

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><!--布局以layout作为根布局-->
+<layout>
+
+    <data>
+        <!--绑定基本数据类型及String-->
+        <!--name:   和java代码中的对象是类似的，名字自定义-->
+        <!--type:   和java代码中的类型是一致的-->
+        <variable
+                name="content"
+                type="String"/>
+
+        <variable
+                name="enabled"
+                type="boolean"/>
+    </data>
+    <!--我们需要展示的布局-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <!--绑定基本数据类型及String的使用是通过   @{数据类型的对象}  通过对应数据类型的控制显示 todo 默认没有显示-->
+        <Button
+                android:id="@+id/main_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="@{enabled,default = true}"
+                android:text="@{content,default = xml中的默认值点我 }"/>
+    </LinearLayout>
+</layout>
